@@ -10,16 +10,21 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="./css/styles.css" rel="stylesheet">
 </head>
-<body>
+<body class="font-open dark">
 
     <!-- NOTLAR
         1-) Tailwind CSS mobile firsttir. O yüzden tasarıma mobilden başla!
         2-) Flex yapılarını kurmadan önce detaylı bir şekilde dökümantasyonu incele!
     
     -->
-
+    <!-- Dark Light Toggle -->
+    <div class="absolute top-1 left-5 cursor-pointer text-lg">
+        <i class="fa-solid fa-sun text-white" id="sun"></i>
+        <i class="fa-solid fa-moon hidden text-black" id="moon"></i>
+    </div>
+     
     <!-- Header Section -->
-    <header class="bg-black py-6 text-gega-grey uppercase lg:py-12">
+    <header class="dark:bg-black bg-white text-black py-6 dark:text-gega-grey uppercase lg:py-12">
         <!-- Header Container -->
         <div class="container flex items-center justify-between space-x-8 lg:space-x-16">
             <!-- Logo -->
@@ -62,17 +67,15 @@
             </nav>
         </div>
     </header>
-  
-
-    <!-- Hero Section -->
-    <section class="h-64 md:h-96 lg:h-[32rem] group relative">
+     <!-- Hero Section -->
+     <section class="h-96 lg:h-[32rem] group relative">
         <!-- Hero Image -->
         <img src="/public/images/batman.jpg" alt="batman" class="h-full w-full object-cover"/>
 
         <!-- Hero Content -->
         <div class="absolute bottom-0 w-full bg-gradient-to-b from-transparent to-black">
             <!-- Hero Content Container -->
-            <div class="container">
+            <div class="container pl-10 lg:pl-0">
                     <h3 class="text-gega-melon tracking-wider group-hover:mb-1 duration-500">
                         Action, Drama, Thriller
                     </h3>
@@ -81,7 +84,7 @@
                     </h1>
                     <p class="text-gega-grey group-hover:mb-2 duration-500 text-sm lg:text-base w-3/4 lg:w-2/3">gripping cinematic masterpiece, showcasing Batman's relentless pursuit of justice in Gotham City, amidst chaos and corruption.</p>
                     <!-- Detail Container -->
-                    <div class="flex space-x-8 opacity-0 group-hover:opacity-100 group-hover:mb-20 duration-1000">
+                    <div class="flex space-x-8 opacity-0 group-hover:opacity-100 group-hover:mb-10 lg:group-hover:mb-20 duration-1000">
                             <!-- Watch -->
                             <div class="flex space-x-2 items-center cursor-pointer">
                                 <a href="#" class="text-gega-grey uppercase lg:text-lg hover:text-gega-red duration-500">Watch Trailer</a>
@@ -109,7 +112,378 @@
         </div>
     </section>
 
+    <!-- Movies Section -->
+    <section class="py-24 bg-black">
+        <!-- Movies Content -->
+        <div class="container flex flex-col lg:space-x-16 space-y-8 lg:space-y-0 lg:flex-row">
+            <!-- Left Content -->
+            <div class="basis-2/3">
+                    <!-- Titles -->
+                    <div class="flex space-x-2 divide-x divide-gega-red divide-opacity-50 mb-8 pl-8 lg:pl-0">
+                        <h2 class="text-gega-red "><a href="">Latest</a></h2>
+                        <h2 class="text-gega-grey pl-2 hover:text-gega-red duration-500"><a href="">Best</a></h2>
+                        <h2 class="text-gega-grey pl-2 hover:text-gega-red duration-500"><a href="">Popular</a></h2>
+                    </div>
+                    <!-- Images Container -->
+                    <div class="flex flex-wrap">
+                        <!-- Image 1 -->
+                        <div class="group relative overflow-hidden basis-1/3 md:basis-1/4 lg:basis-1/3">
+                            <!-- Image -->
+                            <img src="./images/mv1.jpg" alt="movie 1" class="group-hover:scale-110 duration-500 group-hover:opacity-50">
+                            <!-- Image Detail Container -->
+                            <div class="absolute px-6 bottom-8">
+                                <h3 class="text-gega-grey group-hover:text-gega-melon group-hover:mb-2 duration-500">Oblivion</h3>
+                                <p class="text-xs opacity-0 group-hover:opacity-100  group-hover:mb-10 duration-500 text-gega-grey">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque, illum.</p>
+                                <!-- Icons Container -->
+                                <div class="flex absolute space-x-8 text-gega-grey opacity-0 -bottom-2 group-hover:bottom-2 group-hover:opacity-100 duration-500">
+                                        <a href="#" class="hover:text-gega-red"><i class="fa-solid fa-play"></i></a>
+                                        <a href="#" class="hover:text-gega-red"><i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group relative overflow-hidden basis-1/3 md:basis-1/4 lg:basis-1/3">
+                            <!-- Image -->
+                            <img src="./images/mv2.jpg" alt="movie 1" class="group-hover:scale-110 duration-500 group-hover:opacity-50">
+                            <!-- Image Detail Container -->
+                            <div class="absolute px-6 bottom-8">
+                                <h3 class="text-gega-grey group-hover:text-gega-melon group-hover:mb-2 duration-500">Oblivion</h3>
+                                <p class="text-xs opacity-0 group-hover:opacity-100  group-hover:mb-10 duration-500 text-gega-grey">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque, illum.</p>
+                                <!-- Icons Container -->
+                                <div class="flex absolute space-x-8 text-gega-grey opacity-0 -bottom-2 group-hover:bottom-2 group-hover:opacity-100 duration-500">
+                                        <a href="#" class="hover:text-gega-red"><i class="fa-solid fa-play"></i></a>
+                                        <a href="#" class="hover:text-gega-red"><i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group relative overflow-hidden basis-1/3 md:basis-1/4 lg:basis-1/3">
+                            <!-- Image -->
+                            <img src="./images/mv3.jpg" alt="movie 1" class="group-hover:scale-110 duration-500 group-hover:opacity-50">
+                            <!-- Image Detail Container -->
+                            <div class="absolute px-6 bottom-8">
+                                <h3 class="text-gega-grey group-hover:text-gega-melon group-hover:mb-2 duration-500">Oblivion</h3>
+                                <p class="text-xs opacity-0 group-hover:opacity-100  group-hover:mb-10 duration-500 text-gega-grey">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque, illum.</p>
+                                <!-- Icons Container -->
+                                <div class="flex absolute space-x-8 text-gega-grey opacity-0 -bottom-2 group-hover:bottom-2 group-hover:opacity-100 duration-500">
+                                        <a href="#" class="hover:text-gega-red"><i class="fa-solid fa-play"></i></a>
+                                        <a href="#" class="hover:text-gega-red"><i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group relative overflow-hidden basis-1/3 md:basis-1/4 lg:basis-1/3">
+                            <!-- Image -->
+                            <img src="./images/mv4.jpg" alt="movie 1" class="group-hover:scale-110 duration-500 group-hover:opacity-50">
+                            <!-- Image Detail Container -->
+                            <div class="absolute px-6 bottom-8">
+                                <h3 class="text-gega-grey group-hover:text-gega-melon group-hover:mb-2 duration-500">Oblivion</h3>
+                                <p class="text-xs opacity-0 group-hover:opacity-100  group-hover:mb-10 duration-500 text-gega-grey">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque, illum.</p>
+                                <!-- Icons Container -->
+                                <div class="flex absolute space-x-8 text-gega-grey opacity-0 -bottom-2 group-hover:bottom-2 group-hover:opacity-100 duration-500">
+                                        <a href="#" class="hover:text-gega-red"><i class="fa-solid fa-play"></i></a>
+                                        <a href="#" class="hover:text-gega-red"><i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group relative overflow-hidden basis-1/3 md:basis-1/4 lg:basis-1/3">
+                            <!-- Image -->
+                            <img src="./images/mv5.jpg" alt="movie 1" class="group-hover:scale-110 duration-500 group-hover:opacity-50">
+                            <!-- Image Detail Container -->
+                            <div class="absolute px-6 bottom-8">
+                                <h3 class="text-gega-grey group-hover:text-gega-melon group-hover:mb-2 duration-500">Oblivion</h3>
+                                <p class="text-xs opacity-0 group-hover:opacity-100  group-hover:mb-10 duration-500 text-gega-grey">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque, illum.</p>
+                                <!-- Icons Container -->
+                                <div class="flex absolute space-x-8 text-gega-grey opacity-0 -bottom-2 group-hover:bottom-2 group-hover:opacity-100 duration-500">
+                                        <a href="#" class="hover:text-gega-red"><i class="fa-solid fa-play"></i></a>
+                                        <a href="#" class="hover:text-gega-red"><i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group relative overflow-hidden basis-1/3 md:basis-1/4 lg:basis-1/3">
+                            <!-- Image -->
+                            <img src="./images/mv6.jpg" alt="movie 1" class="group-hover:scale-110 duration-500 group-hover:opacity-50">
+                            <!-- Image Detail Container -->
+                            <div class="absolute px-6 bottom-8">
+                                <h3 class="text-gega-grey group-hover:text-gega-melon group-hover:mb-2 duration-500">Oblivion</h3>
+                                <p class="text-xs opacity-0 group-hover:opacity-100  group-hover:mb-10 duration-500 text-gega-grey">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque, illum.</p>
+                                <!-- Icons Container -->
+                                <div class="flex absolute space-x-8 text-gega-grey opacity-0 -bottom-2 group-hover:bottom-2 group-hover:opacity-100 duration-500">
+                                        <a href="#" class="hover:text-gega-red"><i class="fa-solid fa-play"></i></a>
+                                        <a href="#" class="hover:text-gega-red"><i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group relative overflow-hidden basis-1/3 md:basis-1/4 lg:basis-1/3  hidden md:block lg:hidden">
+                            <!-- Image -->
+                            <img src="./images/mv5.jpg" alt="movie 1" class="group-hover:scale-110 duration-500 group-hover:opacity-50">
+                            <!-- Image Detail Container -->
+                            <div class="absolute px-6 bottom-8">
+                                <h3 class="text-gega-grey group-hover:text-gega-melon group-hover:mb-2 duration-500">Oblivion</h3>
+                                <p class="text-xs opacity-0 group-hover:opacity-100  group-hover:mb-10 duration-500 text-gega-grey">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque, illum.</p>
+                                <!-- Icons Container -->
+                                <div class="flex absolute space-x-8 text-gega-grey opacity-0 -bottom-2 group-hover:bottom-2 group-hover:opacity-100 duration-500">
+                                        <a href="#" class="hover:text-gega-red"><i class="fa-solid fa-play"></i></a>
+                                        <a href="#" class="hover:text-gega-red"><i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group relative overflow-hidden basis-1/3 md:basis-1/4 lg:basis-1/3 hidden md:block lg:hidden">
+                            <!-- Image -->
+                            <img src="./images/mv3.jpg" alt="movie 1" class="group-hover:scale-110 duration-500 group-hover:opacity-50">
+                            <!-- Image Detail Container -->
+                            <div class="absolute px-6 bottom-8">
+                                <h3 class="text-gega-grey group-hover:text-gega-melon group-hover:mb-2 duration-500">Oblivion</h3>
+                                <p class="text-xs opacity-0 group-hover:opacity-100  group-hover:mb-10 duration-500 text-gega-grey">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque, illum.</p>
+                                <!-- Icons Container -->
+                                <div class="flex absolute space-x-8 text-gega-grey opacity-0 -bottom-2 group-hover:bottom-2 group-hover:opacity-100 duration-500">
+                                        <a href="#" class="hover:text-gega-red"><i class="fa-solid fa-play"></i></a>
+                                        <a href="#" class="hover:text-gega-red"><i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <!-- Right Content -->
+            <div class="basis-1/3 pl-10 lg:pl-0">
+                <!-- Title -->
+                <h2 class="text-gega-grey mb-8">Hot News</h2>
+                <!-- News Container -->
+                <div class="flex flex-row h-full lg:pb-16 justify-start space-y-4 lg:justify-between lg:flex-col lg:h-full flex-wrap lg:flex-nowrap">
+                    <!-- Item -->
+                    <div class="flex items-center group basis-3/4 md:basis-1/2">
+                        <!-- News Image Container -->
+                        <div class="basis-1/3 h-full">
+                            <img src="./images/new1.jpg" alt="images" class="h-full w-full object-cover">
+                        </div>
+                        <!-- Item Details -->
+                        <div class="pl-8 basis-2/3 text-gega-grey group-hover:text-gega-melon group-hover:cursor-pointer duration-500">
+                            <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, officiis?</p>
+                            <p class="text-xs tracking-tighter mt-2 font-bold font-gemunu">ON NOW 01 2022</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center group basis-3/4 md:basis-1/2">
+                        <!-- News Image Container -->
+                        <div class="basis-1/3 h-full">
+                            <img src="./images/new2.jpg" alt="images" class="h-full w-full object-cover">
+                        </div>
+                        <!-- Item Details -->
+                        <div class="pl-8 basis-2/3 text-gega-grey group-hover:text-gega-melon group-hover:cursor-pointer duration-500">
+                            <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, officiis?</p>
+                            <p class="text-xs tracking-tighter mt-2 font-bold font-gemunu">ON NOW 01 2022</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center group basis-3/4 md:basis-1/2">
+                        <!-- News Image Container -->
+                        <div class="basis-1/3 h-full">
+                            <img src="./images/new3.jpg" alt="images" class="h-full w-full object-cover">
+                        </div>
+                        <!-- Item Details -->
+                        <div class="pl-8 basis-2/3 text-gega-grey group-hover:text-gega-melon group-hover:cursor-pointer duration-500">
+                            <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, officiis?</p>
+                            <p class="text-xs tracking-tighter mt-2 font-bold font-gemunu">ON NOW 01 2022</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center group basis-3/4 md:basis-1/2 md:hidden lg:flex">
+                        <!-- News Image Container -->
+                        <div class="basis-1/3 h-full">
+                            <img src="./images/new5.jpg" alt="images" class="h-full w-full object-cover">
+                        </div>
+                        <!-- Item Details -->
+                        <div class="pl-8 basis-2/3 text-gega-grey group-hover:text-gega-melon group-hover:cursor-pointer duration-500">
+                            <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, officiis?</p>
+                            <p class="text-xs tracking-tighter mt-2 font-bold font-gemunu">ON NOW 01 2022</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center group basis-3/4 md:basis-1/2">
+                        <!-- News Image Container -->
+                        <div class="basis-1/3 h-full">
+                            <img src="./images/new4.jpg" alt="images" class="h-full w-full object-cover">
+                        </div>
+                        <!-- Item Details -->
+                        <div class="pl-8 basis-2/3 text-gega-grey group-hover:text-gega-melon group-hover:cursor-pointer duration-500">
+                            <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, officiis?</p>
+                            <p class="text-xs tracking-tighter mt-2 font-bold font-gemunu">ON NOW 01 2022</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Matrix Section -->
+    <section class="bg-gega-white">
+        <!-- Matrix Section Container -->
+        <div class="container flex items-center justify-center relative pl-10 lg:pl-0">
+            <!-- Left Content -->
+            <div class="hidden md:block md:basis-1/3 lg:basis-1/2">
+                <img src="./images/matrix.png" alt="matrix" class="lg:absolute lg:bottom-0 bottom-0">
+            </div>
+            <!-- Right Content Container-->
+            <div class="md:basis-2/3 lg:basis-1/2">
+                <div class="flex flex-col justify-center py-10 w-3/4 md:w-full">
+                    <h3 class="tracking-wider text-gega-melon">action,drama,thriller</h3>
+                    <h2 class="mb-2">Matrix Reloaded</h2>
+                    <p class="text-sm mb-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel velit omnis itaque voluptas quas doloremque nulla harum vero deserunt autem. Maxime, ipsum?</p>
+                    <h3 class="tracking-wider text-gega-red">8 wins 34 nominations</h3>
+                </div>
+            </div>
+            <!-- Oldie -->
+            <div class="left-10 absolute -top-12 lg:left-0 w-20 h-20 bg-gega-melon rounded-full text-center flex items-center lg:w-24 lg:h-24 md:w-24 md:h-24">
+                    <p class="font-gemunu uppercase text-lg lg:text-xl text-gega-red -rotate-45 md:text-xl">Oldie & Goldie</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Post Section -->
+    <section class="py-24 bg-black text-gega-grey px-10 lg:px-0">
+        <!-- Container -->
+        <div class="container">
+            <!-- Title -->
+            <h2 class="text-gega-red"><a href="">Popular Posts</a></h2>
+        </div>
+        <!-- Grid AREA -->
+
+        <div class="grid grid-cols-6 gap-10">
+                <!-- Item 1-->
+                <div class="col-span-6 md:col-span-3 border border-gega-red">
+                    <!-- Item 1 Header -->
+                    <div class="border-b border-gega-red p-4 flex items-center justify-between">
+                        <h3>Lorem, ipsum dolor.</h3>
+                        <img src="./images/userava1.jpg" alt="useava" class="rounded-full"/>
+                    </div>
+                    <!-- Item 1 Paragraph -->
+                    <p class="p-4 text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eos repudiandae voluptates delectus sint sapiente.</p>
+                <!-- Item 1 Footer -->
+
+                    <div class="border-t border-gega-red p-4 flex items-center justify-end space-x-4 font-bold font-gemunu text-xs">
+                        <p>ON DEC 17, 2022</p>
+                        <div class="flex items-center justify-center space-x-1">
+                            <i class="fa-regular fa-comment"></i>
+                            <p>12</p>
+                            <i class="fa-regular fa-heart"></i>
+                            <p>09</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 2-->
+                <div class="col-span-6 md:col-span-3 border border-gega-red">
+                    <!-- Item 1 Header -->
+                    <div class="border-b border-gega-red p-4 flex items-center justify-between">
+                        <h3>Lorem, ipsum dolor.</h3>
+                        <img src="./images/userava2.jpg" alt="useava" class="rounded-full"/>
+                    </div>
+                    <!-- Item 1 Paragraph -->
+                    <p class="p-4 text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eos repudiandae voluptates delectus sint sapiente.</p>
+                <!-- Item 1 Footer -->
+
+                    <div class="border-t border-gega-red p-4 flex items-center justify-end space-x-4 font-bold font-gemunu text-xs">
+                        <p>ON DEC 17, 2022</p>
+                        <div class="flex items-center justify-center space-x-1">
+                            <i class="fa-regular fa-comment"></i>
+                            <p>12</p>
+                            <i class="fa-regular fa-heart"></i>
+                            <p>09</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 1-->
+                <div class="col-span-6 md:col-span-3 lg:col-span-2  border border-gega-red">
+                    <!-- Item 1 Header -->
+                    <div class="border-b border-gega-red p-4 flex items-center justify-between">
+                        <h3>Lorem, ipsum dolor.</h3>
+                        <img src="./images/userava3.jpg" alt="useava" class="rounded-full"/>
+                    </div>
+                    <!-- Item 1 Paragraph -->
+                    <p class="p-4 text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eos repudiandae voluptates delectus sint sapiente.</p>
+                <!-- Item 1 Footer -->
+
+                    <div class="border-t border-gega-red p-4 flex items-center justify-end space-x-4 font-bold font-gemunu text-xs">
+                        <p>ON DEC 17, 2022</p>
+                        <div class="flex items-center justify-center space-x-1">
+                            <i class="fa-regular fa-comment"></i>
+                            <p>12</p>
+                            <i class="fa-regular fa-heart"></i>
+                            <p>09</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 1-->
+                <div class="col-span-6 md:col-span-3 lg:col-span-2 border border-gega-red">
+                    <!-- Item 1 Header -->
+                    <div class="border-b border-gega-red p-4 flex items-center justify-between">
+                        <h3>Lorem, ipsum dolor.</h3>
+                        <img src="./images/userava4.jpg" alt="useava" class="rounded-full"/>
+                    </div>
+                    <!-- Item 1 Paragraph -->
+                    <p class="p-4 text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eos repudiandae voluptates delectus sint sapiente.</p>
+                <!-- Item 1 Footer -->
+
+                    <div class="border-t border-gega-red p-4 flex items-center justify-end space-x-4 font-bold font-gemunu text-xs">
+                        <p>ON DEC 17, 2022</p>
+                        <div class="flex items-center justify-center space-x-1">
+                            <i class="fa-regular fa-comment"></i>
+                            <p>12</p>
+                            <i class="fa-regular fa-heart"></i>
+                            <p>09</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 1-->
+                <div class="col-span-6 md:col-span-3 lg:col-span-2  border border-gega-red hidden lg:block">
+                    <!-- Item 1 Header -->
+                    <div class="border-b border-gega-red p-4 flex items-center justify-between">
+                        <h3>Lorem, ipsum dolor.</h3>
+                        <img src="./images/userava5.jpg" alt="useava" class="rounded-full"/>
+                    </div>
+                    <!-- Item 1 Paragraph -->
+                    <p class="p-4 text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eos repudiandae voluptates delectus sint sapiente.</p>
+                <!-- Item 1 Footer -->
+
+                    <div class="border-t border-gega-red p-4 flex items-center justify-end space-x-4 font-bold font-gemunu text-xs">
+                        <p>ON DEC 17, 2022</p>
+                        <div class="flex items-center justify-center space-x-1">
+                            <i class="fa-regular fa-comment"></i>
+                            <p>12</p>
+                            <i class="fa-regular fa-heart"></i>
+                            <p>09</p>
+                        </div>
+                    </div>
+                </div>
+                
+        </div>
 
 
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-black text-gega-grey">
+        <!-- Footer Container -->
+        <div class="container flex-col flex md:flex-row px-10 lg:px-0 pb-8 "> 
+            <!-- Left -->
+            <div class="basis-1/3">
+                <a href="" class="text-2xl font-bold text-transparent bg-gradient-to-r bg-clip-text from-gega-red to-gega-grey lg:text-4xl">Netflix</a>
+                <p class="text-sm mt-2">2023 Said ARSLAN No &copy; COPYRIGHT</p>
+            </div>
+            <!-- Middle -->
+            <div class="basis-1/3">
+                <h2 class="mb-2 text-gega-red">LINKS</h2>
+                <div class="grid grid-cols-5 gap-2 uppercase">
+                    <a class="col-span-2 hover:text-gega-melon duration-500" href="#">Movies</a>
+                    <a class="col-span-2 hover:text-gega-melon duration-500" href="#">celebrities</a>
+                    <a class="col-span-2 hover:text-gega-melon duration-500" href="#">blogs</a>
+                    <a class="col-span-2 hover:text-gega-melon duration-500" href="#">news</a>
+                    <a class="col-span-2 hover:text-gega-melon duration-500" href="#">about</a>
+                </div>
+            </div>
+            <!-- Right -->
+            <div class="basis-1/3"> 
+                <h2 class="mb-2 text-gega-red"> FOLLOW US </h2>
+                <form class="flex flex-nowrap">
+                    <input class="py-1 px-2 bg-transparent border border-gega-red placeholder:text-xs outline-none" type="text" placeholder="TYPE YOUR EMAIL...">
+                    <button class="py-1 px-2 border border-gega-red bg-gega-red font-gemunu uppercase">Subscribe</button>
+                </form>
+            </div>
+
+        </div>
+    </footer>
+    <script src="./js/script.js"></script>
 </body>
 </html>
