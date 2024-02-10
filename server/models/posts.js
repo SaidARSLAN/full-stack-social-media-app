@@ -7,7 +7,7 @@ const postsSchema = mongoose.Schema({
     description : String,
     like : Number,
     dislike : Number,
-    commennts : String 
+    comments : String 
 
 
 })

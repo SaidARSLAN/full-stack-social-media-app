@@ -3,15 +3,15 @@ const PORT = 3438
 const express = require('express')
 const mongoose = require('mongoose')   
  
-const posts = require('./routes/posts')
+const router = require('./routes/posts')
 const { config } = require('./config')
 
 
 
 
 const app = express()
-
-app.use('/',posts)
+app.use(express.json())
+app.use('/',router)
 
 mongoose.connect(config.MONGODB_CONNECTION_URL)
 .then(() => {

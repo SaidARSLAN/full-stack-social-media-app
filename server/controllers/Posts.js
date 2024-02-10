@@ -3,7 +3,7 @@ const { Posts } = require("../models/posts")
 
 
 
-const getPosts = () => {
+const getPost = () => {
 
     return Posts.find({})
     .then(Posts => {
@@ -24,8 +24,26 @@ const getPosts = () => {
 
 }
 
+const createPost = (req) => {
+    const post = new Posts({
+
+        id : req.body.id,
+        title : req.body.title,
+        description : req.body.description,
+        like : req.body.like,
+        dislike : req.body.dislike,
+        comments : req.body.comments
+
+   })
+
+   return post.save()
+   .then(result => result)
+   .catch(err => result)
+
+}
 
 
 module.exports = {
-    getPosts,
+    getPost,
+    createPost
 }

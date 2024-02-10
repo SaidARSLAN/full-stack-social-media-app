@@ -1,18 +1,28 @@
 const express = require('express')
-const { getPosts } = require('../controllers/Posts')
+const { getPost, createPost } = require('../controllers/Posts')
+const { Posts } = require('../models/posts')
 
 
 
 
-const posts = express.Router()
+const router = express.Router()
 
-posts.get("/posts", async (_,res) => {
 
-    const getResult = await getPosts()
-    res.status(200).json(getResult)
+router.get("/posts", async (_,res) => {
+
+    const fetchedPosts = await getPost()
+    res.status(200).json(fetchedPosts)
+
+})
+
+router.post("/posts", async (req,res) => {
+
+    const createdPost = await createPost(req)
+
+    res.status(201).json(createdPost)
 
 })
 
 
 
-module.exports = posts
+module.exports = router
