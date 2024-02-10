@@ -1,4 +1,3 @@
-import Button from 'react-bootstrap/Button'
 import { NavLink, Route, Router, Routes } from 'react-router-dom'
 import MainPage from './components/MainPage'
 import EnterPage from './components/EnterPage'
