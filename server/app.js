@@ -10,6 +10,7 @@ const { config } = require('./config')
 
 
 const app = express()
+
 app.use('/',posts)
 
 mongoose.connect(config.MONGODB_CONNECTION_URL)

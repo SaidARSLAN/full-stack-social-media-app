@@ -1,14 +1,15 @@
 const express = require('express')
+const { getPosts } = require('../controllers/Posts')
 
 
 
 
 const posts = express.Router()
 
-posts.get("/posts", (req,res) => {
+posts.get("/posts", async (_,res) => {
 
-    
-    res.send("Connection has been established!")
+    const getResult = await getPosts()
+    res.status(200).json(getResult)
 
 })
 
