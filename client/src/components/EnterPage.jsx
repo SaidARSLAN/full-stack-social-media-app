@@ -4,12 +4,27 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { NavLink } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
-
+import { useState } from 'react';
+import axios from 'axios'
 
 
 
 const EnterPage = () => {
-  
+
+    const [email,setEmail] = useState("")
+    const [password,setPassword] = useState("")
+
+    const handleLoginProcess = async () => {
+      await axios.post("http://localhost:3438/user",{
+
+      email: email
+
+      })
+      .then(result => console.log(result))
+      .catch(err => console.log(err.message))
+      setEmail("")
+      setPassword("")
+    }
 
     return (
             <Container fluid className='h-100'>
@@ -24,7 +39,7 @@ const EnterPage = () => {
                             Email
                           </Form.Label>
                           <Col>
-                            <Form.Control type="plaintext" placeholder="Email" />
+                            <Form.Control value={email} onChange={e => setEmail(e.target.value)} type="plaintext" placeholder="Email" />
                           </Col>
                         </Form.Group>
                         <Form.Group className="mb-3 w-50" controlId="formPlaintextPassword">
@@ -32,11 +47,11 @@ const EnterPage = () => {
                             Password
                           </Form.Label>
                           <Col>
-                            <Form.Control type="password" placeholder="Password" />
+                            <Form.Control value={password} onChange={e => setPassword(e.target.value)} type="password" placeholder="Password" />
                           </Col>
                         </Form.Group>
                        
-                      <Button variant='primary' className='w-20'><NavLink to='/index' style={{color:'white',textDecoration:'none'}}>Let's dive</NavLink></Button>
+                      <Button variant='primary' onClick={handleLoginProcess} className='w-20'>Let's Dive</Button>
                       </Form>
                     </Col>
 

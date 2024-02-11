@@ -6,7 +6,7 @@ const { getUser, createUser } = require('../controllers/User')
 const router = express.Router()
 
 
-router.get('/', async (req,res) => {
+router.post('/', async (req,res) => {
 
     const user = await getUser(req.body.email)
     console.log(user)
@@ -15,7 +15,7 @@ router.get('/', async (req,res) => {
 
 })
 
-router.post('/',async (req,res) => {
+router.post('/create-user',async (req,res) => {
 
         const createdUser = await createUser(req)
 
