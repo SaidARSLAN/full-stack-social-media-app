@@ -38,7 +38,7 @@ const createPost = (req) => {
 
    return post.save()
    .then(result => result)
-   .catch(err => result)
+   .catch(err => err)
 
 }
 
