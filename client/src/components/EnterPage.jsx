@@ -2,8 +2,8 @@ import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { NavLink } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
+import {useNavigate} from 'react-router-dom'
 import { useState } from 'react';
 import axios from 'axios'
 
@@ -13,17 +13,23 @@ const EnterPage = () => {
 
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
-
+    const [token,setToken] = useState("");
+    const navigate = useNavigate()
     const handleLoginProcess = async () => {
-      await axios.post("http://localhost:3438/user",{
-
-      email: email
-
+      await axios.post("http://localhost:3438/user/login",{
+      email: email,
+      password:password
       })
-      .then(result => console.log(result))
+      .then(result => 
+        {
+          setToken(result)
+          if (result.data !== "INVALID ACCESS") {
+            setEmail("")
+            setPassword("")
+            navigate('/index')
+          }
+        })
       .catch(err => console.log(err.message))
-      setEmail("")
-      setPassword("")
     }
 
     return (
@@ -50,11 +56,9 @@ const EnterPage = () => {
                             <Form.Control value={password} onChange={e => setPassword(e.target.value)} type="password" placeholder="Password" />
                           </Col>
                         </Form.Group>
-                       
-                      <Button variant='primary' onClick={handleLoginProcess} className='w-20'>Let's Dive</Button>
+                      <Button variant='primary' onClick={handleLoginProcess} className='w-20'>Login</Button>
                       </Form>
                     </Col>
-
                   </Row>
             </Container>
     )

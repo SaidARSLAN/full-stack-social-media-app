@@ -15,7 +15,7 @@ router.post('/', async (req,res) => {
 
 })
 
-router.post('/create-user',async (req,res) => {
+router.post('/create',async (req,res) => {
 
         const createdUser = await createUser(req)
 
@@ -26,12 +26,17 @@ router.post('/create-user',async (req,res) => {
 router.post('/login',async (req,res) => {
 
     let isSuccess = await loginUser(req)
+    if (isSuccess) {
 
-    const token =   jwt.sign({email:isSuccess.email},'secret',{
-        expiresIn : '1h'
-    })
-
-    res.json({token})
+        const token =   jwt.sign({email:isSuccess.email},'secret',{
+            expiresIn : '1h'
+        })
+        
+        res.json({token})
+    }
+    else {
+        res.json("INVALID ACCESS")
+    }
 })
 
 
