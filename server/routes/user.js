@@ -1,6 +1,6 @@
 const express = require('express')
-const { getUser, createUser } = require('../controllers/User')
-
+const { getUser, createUser,loginUser } = require('../controllers/User')
+const jwt = require('jsonwebtoken')
 
 
 const router = express.Router()
@@ -21,6 +21,17 @@ router.post('/create-user',async (req,res) => {
 
         res.status(201).json(createdUser)
 
+})
+
+router.post('/login',async (req,res) => {
+
+    let isSuccess = await loginUser(req)
+
+    const token =   jwt.sign({email:isSuccess.email},'secret',{
+        expiresIn : '1h'
+    })
+
+    res.json({token})
 })
 
 

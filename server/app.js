@@ -28,6 +28,6 @@ mongoose.connect(config.MONGODB_CONNECTION_URL)
 
 })
 .catch((err) => {
-        console.log("We could not established mongodb connection")
+        console.log("We could not established mongodb connection",err)
 })
 

@@ -34,7 +34,20 @@ const createUser = (req) => {
 
 }
 
+const loginUser = (req) => {
+
+    const {email,password} = req.body
+    return User.findOne({email})
+    .then(result => result)
+    .catch((err) => {
+        console.log(err.message)
+        return null}
+        )
+
+}
+
 module.exports = {
     getUser,
-    createUser
+    createUser,
+    loginUser
 }
