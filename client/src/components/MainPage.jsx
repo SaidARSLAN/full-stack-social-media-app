@@ -8,14 +8,31 @@ const MainPage = () => {
     return (
                         <Container fluid>
                                 <Row>
-                                        <Col>Logo</Col>
-                                        <Col>Search</Col>
-                                        <Col>Profile Info</Col>
+                                        <Col>
+                                                <h1>TravLr</h1>
+                                        </Col>
+                                        <Col>
+                                        
+                                                        <input></input>
+                                                        <button>Search</button>
+
+                                        </Col>
+                                        <Col>
+                                                <h4>Admin Trust</h4>
+                                        </Col>
                                 </Row>
                                 <Row style={{height:"100vh"}}>
-                                        <Col>SideBar</Col>
-                                        <Col>MainPage</Col>
-                                        <Col>Friends</Col>
+                                        <Col style={{backgroundColor:"yellow"}}>
+                                                sidebar
+                                        </Col>
+                                        <Col style={{backgroundColor:"green"}}>
+                                                MainPage
+                                        </Col>
+                                        <Col style={{backgroundColor:"blue"}}>
+
+                                                Friends
+
+                                        </Col>
                                 </Row>
                         </Container>
     )
