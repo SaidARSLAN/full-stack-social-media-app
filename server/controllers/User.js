@@ -22,7 +22,6 @@ const createUser = (req) => {
 
     const user = new User({
 
-        id : req.body.id,
         email : req.body.email,
         password : req.body.password
 
