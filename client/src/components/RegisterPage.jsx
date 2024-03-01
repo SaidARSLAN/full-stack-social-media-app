@@ -3,8 +3,9 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import {useNavigate} from 'react-router-dom'
-import { useEffect, useState } from 'react';
+import Nav from 'react-bootstrap/Nav'
+import {useNavigate,NavLink} from 'react-router-dom'
+import { useState } from 'react';
 import axios from 'axios'
 
 
@@ -96,7 +97,14 @@ const LoginPage = () => {
                             <p style={checkConfirmPassword ? {color:"red"} : {display:"none"}}>Please rewrite your password</p>
                           </Col>
                         </Form.Group>
-                      <Button variant='primary' onClick={handleRegisterProcess} className='w-20'>Register</Button>
+                      <Nav style={{width:"100%",display:"flex","alignItems":'center',justifyContent:"space-around","padding":"0 150px"}}>
+                        <Nav.Item>
+                      <Button variant='primary' onClick={handleRegisterProcess}>Register</Button>
+                        </Nav.Item>
+                        <Nav.Item>
+                              <Nav.Link><NavLink to="/">Log in <small><p style={{fontSize:"10px"}}>If you already have account</p></small></NavLink></Nav.Link>
+                        </Nav.Item>
+                      </Nav>
                       </Form>
                     </Col>
                   </Row>
