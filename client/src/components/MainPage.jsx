@@ -2,6 +2,7 @@ import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import SearchInput from "./SearchInput"
+import SideBar from "./SideBar"
 const MainPage = () => {
 
 
@@ -9,15 +10,15 @@ const MainPage = () => {
     return (
                         <Container fluid>
                                 <Row style={{height:"100vh"}}>
-                                        <Col style={{backgroundColor:"yellow"}}>
+                                        <Col >
                                         <h1>TravLr</h1>
-                                                sidebar
+                                                <SideBar />
                                         </Col>
-                                        <Col style={{backgroundColor:"green"}}>
+                                        <Col >
                                         <SearchInput />
                                                 MainPage
                                         </Col>
-                                        <Col style={{backgroundColor:"blue"}}>
+                                        <Col>
                                         <h4>Admin Trust</h4>
                                                 Friends
                                         </Col>
