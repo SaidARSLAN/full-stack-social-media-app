@@ -15,7 +15,7 @@ const SideBar = () => {
         <Nav defaultActiveKey="/home" className="flex-column sidebar" style={{position:"relative"}}>
             <Container className='inside-sidebar' style={{position:"sticky"}}>
             <Row>
-      <NavLink><Nav.Link href="/home"><FontAwesomeIcon icon={faHouse}></FontAwesomeIcon> Main Page</Nav.Link></NavLink>
+      <NavLink to="/"><Nav.Link><FontAwesomeIcon icon={faHouse}></FontAwesomeIcon> Main Page</Nav.Link></NavLink>
       <NavLink><Nav.Link eventKey="link-1"><FontAwesomeIcon icon={faUser}></FontAwesomeIcon> My Profile</Nav.Link></NavLink>
       <NavLink><Nav.Link eventKey="link-2"><FontAwesomeIcon icon={faUserGroup}></FontAwesomeIcon> Friends</Nav.Link></NavLink>
       <NavLink><Nav.Link eventKey="link-2"><FontAwesomeIcon icon={faShoppingBag}></FontAwesomeIcon> Buy</Nav.Link></NavLink>
