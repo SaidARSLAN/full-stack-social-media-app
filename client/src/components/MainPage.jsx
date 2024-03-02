@@ -4,8 +4,10 @@ import Col from "react-bootstrap/Col"
 import SearchInput from "./SearchInput"
 import SideBar from "./SidarBar"
 import MainSection from "./MainSection"
-const MainPage = () => {
+import { useSelector } from "react-redux"
 
+const MainPage = () => {
+        const username = useSelector(state => state.user.user)
 
 
     return (
@@ -20,7 +22,7 @@ const MainPage = () => {
                                                 <MainSection />
                                         </Col>
                                         <Col className="main-page-right-bar">
-                                        <h4>Admin Trust</h4>
+                                        <h4>{username && username}</h4>
                                                 Friends
                                         </Col>
                                 </Row>

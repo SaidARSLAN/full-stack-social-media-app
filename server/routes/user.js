@@ -32,7 +32,7 @@ router.post('/login',async (req,res) => {
             expiresIn : '1h'
         })
         
-        res.json({token})
+        res.json({isSuccess,token})
     }
     else {
         res.json("INVALID ACCESS")

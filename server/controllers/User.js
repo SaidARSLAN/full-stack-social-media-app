@@ -23,6 +23,7 @@ const createUser = (req) => {
     const user = new User({
 
         email : req.body.email,
+        username : req.body.username,
         password : req.body.password
 
    })

@@ -4,8 +4,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import {useNavigate} from 'react-router-dom'
+import {useDispatch} from 'react-redux'
 import { useEffect, useState } from 'react';
 import axios from 'axios'
+import { SAVE_USERNAME } from '../store/user';
 
 
 
@@ -17,6 +19,7 @@ const LoginPage = () => {
     const navigate = useNavigate()
     const [checkEmail,setCheckEmail] = useState(false)
     const [checkPassword, setCheckPassword] = useState(false)
+    const dispatch = useDispatch()
     const handleLoginProcess = async () => {
       if (email !== "" && password !== "") {
       await axios.post("http://localhost:3438/user/login",{
@@ -30,6 +33,7 @@ const LoginPage = () => {
             setEmail("")
             setPassword("")
             navigate('/index')
+            dispatch(SAVE_USERNAME(result.data.isSuccess.username))
           }
           else {
             alert(result.data)
