@@ -2,22 +2,24 @@ import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import SearchInput from "./SearchInput"
+import SideBar from "./SidarBar"
+import MainSection from "./MainSection"
 const MainPage = () => {
 
 
 
     return (
-                        <Container fluid>
+                        <Container fluid className="main-page-container"> 
                                 <Row style={{height:"100vh"}}>
-                                        <Col style={{backgroundColor:"yellow"}}>
-                                        <h1>TravLr</h1>
-                                                sidebar
+                                        <Col className="sidebar-column">
+                                        <h1 className="main-logo">TravLr</h1>
+                                                <SideBar />
                                         </Col>
-                                        <Col style={{backgroundColor:"green"}}>
+                                        <Col xs={8}>
                                         <SearchInput />
-                                                MainPage
+                                                <MainSection />
                                         </Col>
-                                        <Col style={{backgroundColor:"blue"}}>
+                                        <Col className="main-page-right-bar">
                                         <h4>Admin Trust</h4>
                                                 Friends
                                         </Col>

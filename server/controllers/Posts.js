@@ -41,9 +41,27 @@ const createPost = (req) => {
    .catch(err => err)
 
 }
+const createAllPost = (data) => {
+    const post = new Posts({
+
+        id : data.id,
+        title : data.title,
+        description : data.description,
+        like : data.like,
+        dislike : data.dislike,
+        comments : data.comments,
+        images : data.images,
+   })
+
+   return post.save()
+   .then(result => result)
+   .catch(err => err)
+
+}
 
 
 module.exports = {
     getPost,
-    createPost
+    createPost,
+    createAllPost
 }

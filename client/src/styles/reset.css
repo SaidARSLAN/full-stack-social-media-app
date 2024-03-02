@@ -15,3 +15,42 @@ body,html, #root {
     background-size: cover;
     background-position: center;
 }
+.main-logo {
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: 1000;
+        font-style: italic;
+        padding: 0 0.5rem;
+        cursor:pointer;
+}
+
+.main-page-container {
+    padding: 3.2rem 0;
+}
+
+.sidebar-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-right: 1px solid rgb(196, 196, 196);
+}
+.main-page-right-bar {
+    border-left: 1px solid rgb(196, 196, 196);
+}
+
+
+.sidebar {
+    padding: 3.6rem 0;
+}
+.sidebar a{
+    color: black;
+    font-size: 24px;
+    letter-spacing: 0.73px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+.inside-sidebar {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24rem;
+}

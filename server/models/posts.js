@@ -7,7 +7,8 @@ const postsSchema = mongoose.Schema({
     description : String,
     like : Number,
     dislike : Number,
-    comments : String 
+    comments : Array,
+    images : String,
 
 
 })
