@@ -25,7 +25,7 @@ const MainSection = () => {
         {postStatus === "succeeded" && posts &&  posts.length > 0 ? (
             <Col xs={4}>
             {
-                posts.map((post) => <PostModel {...post} key={post.id}/>)
+                posts.map((post,index) => <PostModel {...post} key={post.id + Math.random() * index}/>)
             }
             </Col>
             ) : (

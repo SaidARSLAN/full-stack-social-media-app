@@ -7,10 +7,20 @@ import MainSection from "./MainSection"
 import { useSelector } from "react-redux"
 
 const MainPage = () => {
-        const username = useSelector(state => state.user.user)
 
+        let username = useSelector(state => {
+               try {
+                       return state.user.user
+        } 
+        catch (err) {
+                console.log(err.message)
+                return null
+        }
+                
+        })
 
     return (
+
                         <Container fluid className="main-page-container"> 
                                 <Row style={{height:"100vh"}}>
                                         <Col className="sidebar-column">
@@ -22,11 +32,12 @@ const MainPage = () => {
                                                 <MainSection />
                                         </Col>
                                         <Col className="main-page-right-bar">
-                                        <h4>{username && username}</h4>
+                                        <h4>{username ? username : "anonymous"}</h4>
                                                 Friends
                                         </Col>
                                 </Row>
                         </Container>
+        
     )
 }
 

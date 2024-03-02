@@ -37,7 +37,8 @@ const createUser = (req) => {
 const loginUser = (req) => {
 
     const {email,password} = req.body
-    return User.findOne({email})
+
+    return User.findOne({email:email,password:password})
     .then(result => result)
     .catch((err) => {
         console.log(err.message)

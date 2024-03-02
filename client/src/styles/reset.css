@@ -19,7 +19,7 @@ body,html, #root {
         font-family: 'Courier New', Courier, monospace;
         font-weight: 1000;
         font-style: italic;
-        padding: 0 0.5rem;
+        padding: 0 1.75rem;
         cursor:pointer;
 }
 
@@ -42,15 +42,18 @@ body,html, #root {
 .sidebar {
     padding: 3.6rem 0;
 }
+
 .sidebar a{
     color: black;
     font-size: 24px;
     letter-spacing: 0.73px;
     font-weight: 800;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    text-decoration: none;
 }
+
 .inside-sidebar {
     display: flex;
     flex-direction: column;
-    row-gap: 24rem;
+    row-gap: 20rem;
 }
