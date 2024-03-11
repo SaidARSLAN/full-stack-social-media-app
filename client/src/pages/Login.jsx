@@ -10,34 +10,32 @@ const Login = () => {
     return (
         <Container fluid>
             <Row className='h-100'>
-                    <Col>
-                            Image
+                    <Col className='login-image'>
+                            
                     </Col>
                     <Col className='d-flex align-items-center justify-content-center w-100'>
     <div style={{width:"100%"}} className='mx-auto'> 
         <Row>
-            Login
+            <h1 className='text-center'>Login</h1>
         </Row>
         <Row className='w-100'>
             <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
+                <Form.Group className="mb-3 d-flex flex-column align-items-center" controlId="formBasicEmail">
                     <Form.Control type="email" placeholder="Enter email" />
                     <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
                     </Form.Text>
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
+                <Form.Group className="mb-3 d-flex flex-column align-items-center" controlId="formBasicPassword">
                     <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                <Form.Group className="mb-3 d-flex flex-column align-items-center" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Remember me" />
-                </Form.Group>
-                <Button variant="primary" type="submit">
+                    <Button variant="primary" type="submit">
                     Login
                 </Button>
+                </Form.Group>
             </Form>
         </Row>
     </div>
