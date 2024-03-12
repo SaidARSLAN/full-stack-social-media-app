@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import SideBar from '../components/SideBar';
+import MiddlePlace from '../components/MiddlePlace';
 
 const MainPage = () => {
 
@@ -24,8 +25,8 @@ const MainPage = () => {
                 <Col>
                     <SideBar />
                 </Col>
-                <Col xs={6}>
-                    Middle
+                <Col xs={8}>
+                    <MiddlePlace />
                 </Col>
                 <Col>
                     leftbar
