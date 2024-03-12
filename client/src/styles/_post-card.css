@@ -10,3 +10,9 @@ img {
     height: 70%;
     width: 100%;
 }
+.icon {
+    cursor: pointer;
+}
+.icon:hover {
+    color: rgb(166, 192, 231);
+}
