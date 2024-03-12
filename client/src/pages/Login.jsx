@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { fetchUser } from '../store/user';
 import {useDispatch, useSelector} from 'react-redux'
 import ErrorModal from '../modals/error';
+import Spinner from 'react-bootstrap/Spinner';
 
 const Login = () => {
     
@@ -24,7 +25,9 @@ const Login = () => {
         if (user.status === "succeeded") {
             localStorage.clear()
             localStorage.setItem('user',JSON.stringify({email,password}))
-            navigate("/main-page")
+            setTimeout(() => {
+                navigate("/main-page")
+            },3000)
         
         }
         if (user.status === "failed") {
@@ -67,9 +70,10 @@ const Login = () => {
                 </Form.Group>
                 <Form.Group className="mb-3 d-flex flex-column align-items-center" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Remember me" />
+                    {user.status === "succeeded" ? <Spinner animation='grow' size='md' variant='primary'/> : 
                     <Button variant="primary" type="submit" onClick={(event) => handleLogin(event)}>
                     Login
-                </Button>
+                </Button>}
                 </Form.Group>
             </Form>
         </Row>
