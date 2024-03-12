@@ -30,6 +30,11 @@ export const userSlice = createSlice({
             state.status = "succeeded"
             state.user.email = action.payload.email
             state.user.password = action.payload.password
+        },
+        LOG_OUT : (state) => {
+            state.status = "idle",
+            state.user.email = "",
+            state.user.password = ""
         }
     },
     extraReducers: (builder) => {
@@ -49,5 +54,5 @@ export const userSlice = createSlice({
     }
 })
 
-export const {SET_USER} = userSlice.actions
+export const {SET_USER,LOG_OUT} = userSlice.actions
 export default userSlice.reducer

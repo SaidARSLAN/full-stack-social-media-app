@@ -9,7 +9,7 @@ function ErrorModal({show,setShow}) {
 
   return (
     <Modal show={show} animation={true} onHide={handleClose}>
-        <Modal.Header closeButton className='bg-danger text-light'>
+        <Modal.Header closeButton className='bg-warning text-light'>
           <Modal.Title>Login Failed</Modal.Title>
         </Modal.Header>
         <Modal.Body>Your email or password is not correct</Modal.Body>
