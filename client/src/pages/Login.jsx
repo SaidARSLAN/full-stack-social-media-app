@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { fetchUser } from '../store/user';
 import {useDispatch, useSelector} from 'react-redux'
+import ErrorModal from '../modals/error';
 
 const Login = () => {
     
@@ -15,15 +16,21 @@ const Login = () => {
     const dispatch = useDispatch()
     const user = useSelector(state=>state.user)
 
+    const [show, setShow] = useState(false);
+    const handleShow = () => setShow(true);
+
     useEffect(() => {
 
         if (user.status === "succeeded") {
             localStorage.clear()
             localStorage.setItem('user',JSON.stringify({email,password}))
             navigate("/main-page")
+        
         }
         if (user.status === "failed") {
-            console.log("failed")
+            handleShow()
+            setEmail("")
+            setPassword("")
         }
 
     },[user])
@@ -70,6 +77,7 @@ const Login = () => {
 </Col>
 
                     </Row>
+                {show && <ErrorModal show={show} setShow={setShow}/>}
         </Container>
     )
 }

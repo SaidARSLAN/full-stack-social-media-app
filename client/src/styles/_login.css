@@ -16,7 +16,27 @@ button {
 }
 
 @media only screen and (max-width:720px) {
-    .login-image {
+    .login-image,.text-muted {
         display: none;
+    }
+    .container-fluid {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .form-control {
+        width: 100%;
+    } 
+    button {
+        margin-top: 16px;
+        width: 50%;
+    }
+    .text-center {
+        margin-bottom: 36px;
+        padding: 0px;
+        letter-spacing: 0.75px;
+    }
+    .row {
+        margin: 0px;
     }
 }
