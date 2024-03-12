@@ -3,9 +3,11 @@ import axios from 'axios'
 
 
 export const fetchUser = createAsyncThunk('people/fetchUser',
-    async () => {
-        const response = await axios.get('http://localhost:3000/user');
-        console.log(response)
+    async (data) => {
+        const response = await axios.post('http://127.0.0.1:3438/user/login',{
+                email : data.email,
+                password : data.password
+        });
         return response.data
     }
 )
@@ -13,7 +15,6 @@ export const fetchUser = createAsyncThunk('people/fetchUser',
 
 const initialState = {
     user : {
-        username : "",
         email: "",
         password : "",
     },
@@ -24,7 +25,13 @@ const initialState = {
 export const userSlice = createSlice({
     name:"counter",
     initialState,
-    reducers: {},
+    reducers: {
+        SET_USER : (state,action) => {
+            state.status = "succeeded"
+            state.user.email = action.payload.email
+            state.user.password = action.payload.password
+        }
+    },
     extraReducers: (builder) => {
         builder
         .addCase(fetchUser.pending, (state) => {
@@ -32,7 +39,8 @@ export const userSlice = createSlice({
         })
         .addCase(fetchUser.fulfilled, (state,action) => {
             state.status = "succeeded"
-            state.user = action.payload
+            state.user.email = action.payload.isSuccess?.email
+            state.user.password = action.payload.isSuccess?.password
         })
         .addCase(fetchUser.rejected, (state,action) => {
             state.status = "failed"
@@ -41,4 +49,5 @@ export const userSlice = createSlice({
     }
 })
 
+export const {SET_USER} = userSlice.actions
 export default userSlice.reducer

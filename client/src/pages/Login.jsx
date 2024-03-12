@@ -3,19 +3,37 @@ import Row from 'react-bootstrap/Row';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
-
+import { fetchUser } from '../store/user';
+import {useDispatch, useSelector} from 'react-redux'
 
 const Login = () => {
     
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
-    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const user = useSelector(state=>state.user)
 
+    useEffect(() => {
+
+        if (user.status === "succeeded") {
+            localStorage.clear()
+            localStorage.setItem('user',JSON.stringify({email,password}))
+            navigate("/main-page")
+        }
+        if (user.status === "failed") {
+            console.log("failed")
+        }
+
+    },[user])
+
+    const navigate = useNavigate()
+    
     const handleLogin = (event)  => {
         event.preventDefault()
-        navigate("/main-page")
+        dispatch(fetchUser({email,password}))
+        
     }
 
     return (
