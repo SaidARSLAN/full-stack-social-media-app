@@ -1,6 +1,6 @@
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
-import { FaHome } from "react-icons/fa";
+import { FaHome, FaLeaf } from "react-icons/fa";
 import { IoPerson } from "react-icons/io5";
 import { TiMessages } from "react-icons/ti";
 import { BsPeopleFill } from "react-icons/bs";
@@ -9,15 +9,21 @@ import { MdOutlineLogout } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { LOG_OUT } from '../store/user';
+import Spinner from 'react-bootstrap/Spinner';
+import { useState } from 'react';
 
 
 const SideBar = () => {
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const [logOut,setLogOut] = useState(false)
     const handleLogOut = () => {
-        navigate("/login")
         dispatch(LOG_OUT())
+        setLogOut(true)
+        setTimeout(() => {
+            navigate("/login")
+        },2000)
     }
     return (
         <Nav defaultActiveKey="/home" className="flex-column position-sticky top-0 pt-4  justify-content-between" style={{height:"100vh"}}>
@@ -30,7 +36,7 @@ const SideBar = () => {
                     <Nav.Link><IoSettings/> Settings</Nav.Link>
                     </Container>
                     <Container>
-                    <Nav.Link onClick={handleLogOut}><MdOutlineLogout /> Logout</Nav.Link>
+                    {logOut ? <Spinner animation='grow' size='md' variant='warning'/> : <Nav.Link onClick={handleLogOut}><MdOutlineLogout /> Logout</Nav.Link>}
                     </Container>
                     </Nav>
     )
