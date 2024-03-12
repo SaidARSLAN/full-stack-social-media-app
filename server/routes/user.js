@@ -7,12 +7,8 @@ const router = express.Router()
 
 
 router.post('/', async (req,res) => {
-
     const user = await getUser(req.body.email)
-    console.log(user)
-    
     res.status(200).json(user)
-
 })
 
 router.post('/create',async (req,res) => {
@@ -24,7 +20,6 @@ router.post('/create',async (req,res) => {
 })
 
 router.post('/login',async (req,res) => {
-
     let isSuccess = await loginUser(req)
     if (isSuccess) {
 
@@ -32,10 +27,10 @@ router.post('/login',async (req,res) => {
             expiresIn : '1h'
         })
         
-        res.json({isSuccess,token})
+        res.status(200).json({isSuccess,token})
     }
     else {
-        res.json("INVALID ACCESS")
+        res.status(401).json({payload : "INVALID ACCESS"})
     }
 })
 
