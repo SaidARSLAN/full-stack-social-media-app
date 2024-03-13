@@ -60,13 +60,13 @@ const Login = () => {
         <Row className='w-100'>
             <Form>
                 <Form.Group className="mb-3 d-flex flex-column align-items-center" controlId="formBasicEmail">
-                    <Form.Control value={email} onChange={e => setEmail(e.target.value)} type="email" placeholder="Enter email" />
+                    <Form.Control value={email} onChange={e => setEmail(e.target.value)} type="email" placeholder="Enter email" className='form-control-login'/>
                     <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
                     </Form.Text>
                 </Form.Group>
                 <Form.Group className="mb-3 d-flex flex-column align-items-center" controlId="formBasicPassword">
-                    <Form.Control type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)}/>
+                    <Form.Control type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} className='form-control-login'/>
                 </Form.Group>
                 <Form.Group className="mb-3 d-flex flex-column align-items-center" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Remember me" />

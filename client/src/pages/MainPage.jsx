@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import SideBar from '../components/SideBar';
 import MiddlePlace from '../components/MiddlePlace';
+import LeftBar from '../components/LeftBar';
 
 const MainPage = () => {
 
@@ -29,7 +30,7 @@ const MainPage = () => {
                     <MiddlePlace />
                 </Col>
                 <Col>
-                    leftbar
+                    <LeftBar />
                 </Col>
             </Row>
         </Container>

@@ -41,7 +41,7 @@ const PostCard = ({post}) => {
 
     return (
         <Card>
-        <Card.Img variant="top" src={post.images} />
+        <Card.Img variant="top" src={post.images} className='img-post'/>
       <Card.Body>
         <Card.Title>{post.title}</Card.Title>
         <Card.Text>
