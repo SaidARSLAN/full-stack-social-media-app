@@ -5,58 +5,56 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button'
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { fetchUser } from '../store/user';
-import {useDispatch, useSelector} from 'react-redux'
 import ErrorModal from '../modals/error';
 import Spinner from 'react-bootstrap/Spinner';
-
-const Login = () => {
+import { createUser } from '../store/user';
+import { useDispatch, useSelector } from 'react-redux';
+const Register = () => {
     
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
+    const [username,setUsername] = useState("")
+    const [confirmPassword,setConfirmPassword] = useState("")
     const dispatch = useDispatch()
-    const user = useSelector(state=>state.user)
+    
 
     const [show, setShow] = useState(false);
     const handleShow = () => setShow(true);
 
+    const user = useSelector(state => state.user)
+    const navigate = useNavigate()
+
+
     useEffect(() => {
 
-        if (user.status === "succeeded") {
-            localStorage.clear()
-            localStorage.setItem('user',JSON.stringify({email,password,username:user.username}))
+        if (user.registerStatus == "succeeded") {
+            console.log(user)
             setTimeout(() => {
-                navigate("/main-page")
+                navigate("/login")
             },3000)
         }
-        if (user.status === "failed") {
-            handleShow()
-            setEmail("")
-            setPassword("")
-        }
 
-    },[user])
-    const navigate = useNavigate()
-    
-    const handleLogin = (event)  => {
+    },[user,dispatch])
+
+
+    const handleRegister = (event)  => {
+        dispatch(createUser({email:email,password:password,username:username}))   
         event.preventDefault()
-        dispatch(fetchUser({email,password}))
-        
     }
-
     return (
         <Container fluid className='h-100'>
             <Row className='h-100'>
-                    <Col className='login-image'>
-                            
-                    </Col>
+                    <Col className='login-image'></Col>
                     <Col className='d-flex align-items-center justify-content-center w-100'>
     <div style={{width:"100%"}} className='mx-auto'> 
         <Row>
-            <h1 className='text-center'>Login</h1>
+            <h1 className='text-center'>Register</h1>
         </Row>
         <Row className='w-100'>
             <Form>
+            <Form.Group className="mb-3 d-flex flex-column align-items-center" controlId="formBasicEmail">
+                    <Form.Control value={username} onChange={e => setUsername(e.target.value)} type="email" placeholder="Username" className='form-control-login'/>
+                </Form.Group>
                 <Form.Group className="mb-3 d-flex flex-column align-items-center" controlId="formBasicEmail">
                     <Form.Control value={email} onChange={e => setEmail(e.target.value)} type="email" placeholder="Enter email" className='form-control-login'/>
                     <Form.Text className="text-muted">
@@ -66,11 +64,13 @@ const Login = () => {
                 <Form.Group className="mb-3 d-flex flex-column align-items-center" controlId="formBasicPassword">
                     <Form.Control type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} className='form-control-login'/>
                 </Form.Group>
+                <Form.Group className="mb-3 d-flex flex-column align-items-center" controlId="formBasicPassword">
+                    <Form.Control type="password" placeholder="Confirm Password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} className='form-control-login'/>
+                </Form.Group>
                 <Form.Group className="mb-3 d-flex flex-column align-items-center" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Remember me" />
-                    {user.status === "succeeded" ? <Spinner animation='grow' size='md' variant='primary'/> : 
-                    <Button variant="primary" type="submit" onClick={(event) => handleLogin(event)} style={{width:"25%",height:"40px"}}>
-                    Login
+                {user.registerStatus === "succeeded" ? <Spinner animation='grow' size='md' variant='primary'/> : 
+                    <Button variant="primary" type="submit" onClick={(event) => handleRegister(event)} style={{width:"25%",height:"40px"}}>
+                    Register
                 </Button>}
                 </Form.Group>
             </Form>
@@ -84,4 +84,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Register

@@ -12,7 +12,7 @@ export const fetchPost = createAsyncThunk('post/fetchPost',
 const initialState = {
     posts : [],
     error:null,
-    status : "idle"
+    status : "idle",
 }
 
 

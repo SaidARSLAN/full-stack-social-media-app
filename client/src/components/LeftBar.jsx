@@ -7,6 +7,7 @@ import {useSelector} from 'react-redux'
 const LeftBar = () => {
 
     const user = useSelector(state => state.user.user)
+    console.log(user)
     return (
         <Container className="mx-4 mt-2">
       <Row>
@@ -14,7 +15,7 @@ const LeftBar = () => {
           <Image src="https://cdn.pixabay.com/photo/2021/01/14/17/53/man-5917530_1280.jpg" className="leftbar-image" />
         </Col>
         <Col xs={10}>
-                <h4>{user?.email}</h4>
+                <h4>{user?.username}</h4>
         </Col>
       </Row>
     </Container>

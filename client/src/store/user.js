@@ -12,14 +12,28 @@ export const fetchUser = createAsyncThunk('people/fetchUser',
     }
 )
 
+export const createUser = createAsyncThunk('people/createUser',
+    async (data) => {
+        const response = await axios.post('http://127.0.0.1:3438/user/create',{
+                username : data.username,
+                email : data.email,
+                password : data.password,
+        });
+        return response.data
+    }
+)
+
 
 const initialState = {
     user : {
         email: "",
         password : "",
+        username : ""
     },
     status:"idle",
-    error:null
+    error:null,
+    registerStatus : "idle",
+    registerError : null
 }
 
 export const userSlice = createSlice({
@@ -46,10 +60,21 @@ export const userSlice = createSlice({
             state.status = "succeeded"
             state.user.email = action.payload.isSuccess?.email
             state.user.password = action.payload.isSuccess?.password
+            state.user.username = action.payload.isSuccess?.username
         })
         .addCase(fetchUser.rejected, (state,action) => {
             state.status = "failed"
             state.error = action.error.message
+        })
+        .addCase(createUser.pending, (state) => {
+            state.registerStatus = "loading"
+        })
+        .addCase(createUser.fulfilled, (state) => {
+            state.registerStatus = "succeeded"
+        })
+        .addCase(createUser.rejected, (state,action) => {
+            state.registerStatus = "failed"
+            state.registerError = action.error.message
         })
     }
 })
