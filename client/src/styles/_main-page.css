@@ -1,7 +1,4 @@
-.container-fluid,.row,.col {
-    padding: 0px;
-    margin: 0;
-}
+
 .sidebar-title {
     margin-bottom: 50px;
     cursor: default;
@@ -26,4 +23,13 @@
 }
 .nav {
     background-color: rgb(244, 244, 244);
+}
+@media only screen and (max-width:780px) {
+    .sidebar-col {
+        display: none;
+    }
+    .main-page-row {
+        display: flex;
+        flex-direction: column-reverse;
+    }
 }

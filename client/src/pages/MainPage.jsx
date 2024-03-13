@@ -21,11 +21,11 @@ const MainPage = () => {
 
     return (
         <Container fluid>
-            <Row style={{height:"2000px"}}>
-                <Col>
+            <Row className='main-page-row'>
+                <Col className='sidebar-col'>
                     <SideBar />
                 </Col>
-                <Col xs={8}>
+                <Col lg={6} xs={12}>
                     <MiddlePlace />
                 </Col>
                 <Col>

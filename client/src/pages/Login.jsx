@@ -47,7 +47,7 @@ const Login = () => {
     }
 
     return (
-        <Container fluid>
+        <Container fluid className='h-100'>
             <Row className='h-100'>
                     <Col className='login-image'>
                             
@@ -71,7 +71,7 @@ const Login = () => {
                 <Form.Group className="mb-3 d-flex flex-column align-items-center" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Remember me" />
                     {user.status === "succeeded" ? <Spinner animation='grow' size='md' variant='primary'/> : 
-                    <Button variant="primary" type="submit" onClick={(event) => handleLogin(event)}>
+                    <Button variant="primary" type="submit" onClick={(event) => handleLogin(event)} style={{width:"25%",height:"40px"}}>
                     Login
                 </Button>}
                 </Form.Group>
