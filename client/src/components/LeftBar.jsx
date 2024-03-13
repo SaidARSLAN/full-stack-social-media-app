@@ -7,7 +7,7 @@ import {useSelector} from 'react-redux'
 const LeftBar = () => {
 
     const user = useSelector(state => state.user.user)
-    console.log(user)
+    
     return (
         <Container className="mx-4 mt-2">
       <Row>
