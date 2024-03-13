@@ -32,7 +32,8 @@ const createPost = (req) => {
         description : req.body.description,
         like : req.body.like,
         dislike : req.body.dislike,
-        comments : req.body.comments
+        comments : req.body.comments,
+        images : req.body.images
 
    })
 
